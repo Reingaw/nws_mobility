@@ -34,7 +34,7 @@ export const ConteinerCadastro = styled.div`
             & span {
                 height: 19px;
                 width: 19px;
-                background: rgba(97, 218, 251, 1);
+                background: rgba(196, 196, 196, 1);
                 border-radius: 50%;
                 margin: 0 -5px;
                 z-index: 1;

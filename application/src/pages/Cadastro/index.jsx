@@ -14,7 +14,7 @@ function Cadastro () {
       <ConteinerCadastro>
         <div className='wrapper-progress'>
           <div className='mark'>
-            <span></span>
+            <span style={{background: 'rgba(97, 218, 251, 1)'}}></span>
             <span></span>
             <span></span>
           </div>
@@ -44,8 +44,8 @@ function Cadastro () {
       <ConteinerCadastro>
         <div className='wrapper-progress'>
           <div className='mark'>
-            <span></span>
-            <span></span>
+            <span style={{background: 'rgba(97, 218, 251, 1)'}}></span>
+            <span style={{background: 'rgba(97, 218, 251, 1)'}}></span>
             <span></span>
           </div>
           <div className="progress">
@@ -85,6 +85,18 @@ function Cadastro () {
   case 3:
     return (
       <ConteinerCadastro>
+        <div className='wrapper-progress'>
+          <div className='mark'>
+            <span style={{background: 'rgba(97, 218, 251, 1)'}}></span>
+            <span style={{background: 'rgba(97, 218, 251, 1)'}}></span>
+            <span style={{background: 'rgba(97, 218, 251, 1)'}}></span>
+          </div>
+          <div className="progress">
+            <div className="progress-bar bg-info" role="progressbar" style={{width: '100%'}} aria-valuenow="25" aria-valuemin="25" aria-valuemax="100">
+            </div>
+          </div>
+        </div>
+        
         <div>
           <h4>sucesso</h4>
           <p>Em breve, estaremos trabalhando para
