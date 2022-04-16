@@ -4,6 +4,9 @@ import axios from 'axios';
 
 function Cadastro () {
   const [step, setStep] = useState(1);
+  const [cep, setCep] = useState('');
+
+  console.log(cep);
 
   switch(step) {
   case 1:
@@ -24,12 +27,12 @@ function Cadastro () {
               
        
         <div className="cep">
-          <input type="text" className= "form-control" placeholder='Digite o CEP'/>
+          <input type="text" className= "form-control" placeholder='Digite o CEP' value={cep} onChange={(e) => setCep(e.target.value)}/>
         </div>
           
         <div className='btn'>
           <button type="button" className="btn btn-primary" onClick={() => {
-            axios.get('viacep.com.br/ws/01001000/json/');
+            axios.get(`https://viacep.com.br/ws/${cep}/json/`).then((res) => console.log(res.data));
             setStep(2);
           }}>Primary</button>
         </div>
