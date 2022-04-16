@@ -1,12 +1,18 @@
 import {useState} from 'react';
 import { ConteinerCadastro } from './style';
 import axios from 'axios';
+import {useForm} from 'react-hook-form';
 
 function Cadastro () {
   const [step, setStep] = useState(1);
   const [cep, setCep] = useState('');
 
-  console.log(cep);
+  const {register, handleSubmit, setValue} = useForm();
+
+  const onSubmit = handleSubmit((data) => {
+    console.log(data);
+    setStep(3);
+  });
 
   switch(step) {
   case 1:
@@ -32,9 +38,15 @@ function Cadastro () {
           
         <div className='btn'>
           <button type="button" className="btn btn-primary" onClick={() => {
-            axios.get(`https://viacep.com.br/ws/${cep}/json/`).then((res) => console.log(res.data));
             setStep(2);
-          }}>Primary</button>
+            axios.get(`https://viacep.com.br/ws/${cep}/json/`)
+              .then(({data}) => {
+                setValue('endereço', data.logradouro);
+                setValue('complemento', data.complemento);
+                setValue('bairro', data.bairro);
+                setValue('cidade', data.localidade);
+              });
+          }}>Proximo</button>
         </div>
       </ConteinerCadastro>
     );
@@ -55,28 +67,41 @@ function Cadastro () {
         </div>
         
               
-        <form>
+        <form onSubmit={onSubmit}>
           <div className="nome">
-            <input type="text" className="form-control" placeholder='Digite seu nome...'/>
+            <input type="text" className="form-control" placeholder='Digite seu nome...' {...register('nome')}/>
+          </div>
+
+          <div className='cidade'>
+            <input type="text" className='form-control' id='endereço' placeholder='Digite o endereço...'{...register('cidade')}/>
           </div>
         
           <div className='endereço'>
-            <input type="text" className='form-control' id='endereço' placeholder='Digite o endereço...'/>
-            <input type="text" id='numero' placeholder='N°'/>
+            <input type="text" className='form-control' id='endereço' placeholder='Digite o endereço...'{...register('endereço')}/>
+          </div>
+
+          <div className="bairro">
+            <input type="text" id='numero' placeholder='Bairro' {...register('bairro')}/>
           </div>
         
           <div className="complemento">
-            <input type="text" className="form-control" placeholder='Digite o complemento'/>
+            <input type="text" className="form-control" placeholder='Digite o complemento' {...register('complemento')}/>
           </div>
         
           <div className='descrição'>
-            <textarea className="form-control" placeholder='Descreva o defeito...'></textarea>
+            <textarea className="form-control" placeholder='Descreva o defeito...'{...register('descrição')}></textarea>
           </div>
 
           <div className='btn'>
-            <button type="button" className="btn btn-primary" onClick={() => {
-              setStep(3);
-            }}>Primary</button>
+            <div>
+              <button type="button" className="btn btn-primary" onClick={() => {
+                setStep(1);
+              }}>Voltar</button>
+
+            </div>
+            <div>
+              <button type="submit" className="btn btn-primary">Enviar</button>
+            </div>
           </div>
         </form>
       </ConteinerCadastro>
@@ -97,7 +122,7 @@ function Cadastro () {
           </div>
         </div>
         
-        <div>
+        <div className='message'>
           <h4>sucesso</h4>
           <p>Em breve, estaremos trabalhando para
 consertar esse problema nesse endereço.</p>

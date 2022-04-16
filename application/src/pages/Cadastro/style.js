@@ -90,12 +90,30 @@ export const ConteinerCadastro = styled.div`
         }
     }
 
+    .cidade {
+        & input {
+            height: 47px;
+            width: 613px;
+            border-radius: 6px;
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+            background: rgba(196, 196, 196, 1);
+
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0em;
+            text-align: left;
+
+            padding: 12px 17px;
+        }
+    }
+
     .endereço {
         display: flex;
         gap: 10px;
         & #endereço {
             height: 47px;
-            width: 513px;
+            width: 613px;
             border-radius: 6px;
             background: rgba(196, 196, 196, 1);
 
@@ -107,23 +125,22 @@ export const ConteinerCadastro = styled.div`
 
             padding: 12px 17px;
         }
+    }
 
-        & #numero {
-            height: 47px;
-            width: 91px;
-            left: 615px;
-            top: 289px;
-            border-radius: 6px;
-            background: rgba(196, 196, 196, 1);
+    .bairro {
+        & input {
+        height: 47px;
+        width: 613px;
+        border-radius: 6px;
+        background: rgba(196, 196, 196, 1);
 
-            font-size: 20px;
-            font-weight: 400;
-            line-height: 24px;
-            letter-spacing: 0em;
-            text-align: left;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0em;
+        text-align: left;
 
-
-            padding: 12px 17px;
+        padding: 12px 17px;
         }
     }
 
@@ -160,6 +177,33 @@ export const ConteinerCadastro = styled.div`
             text-align: left;
 
             padding: 12px 17px;
+        }
+    }
+
+    .btn {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .message {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        & h4 {
+            font-size: 32px;
+            font-weight: 600;
+            line-height: 39px;
+            letter-spacing: 0em;
+            text-align: left;
+        }
+
+        & p {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 19px;
+            letter-spacing: 0em;
+            text-align: center;
         }
     }
 `;
