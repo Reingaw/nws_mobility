@@ -123,9 +123,9 @@ function Cadastro () {
         </div>
         
         <div className='message'>
-          <h4>sucesso</h4>
-          <p>Em breve, estaremos trabalhando para
-consertar esse problema nesse endereço.</p>
+          <h4>SUCESSO</h4>
+          <p>Em breve, estaremos trabalhando para<br />
+            consertar esse problema nesse endereço.</p>
         </div>
       </ConteinerCadastro>
     );

@@ -6,10 +6,10 @@ export const ConteinerCadastro = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 78px;
+    justify-content: flex-start;
+    gap: 48px;
 
-    margin-top: 136px;
+    margin-top: 36px;
 
     .wrapper-progress {
         width: 500px;
@@ -49,7 +49,7 @@ export const ConteinerCadastro = styled.div`
     form {
         display: flex;
         flex-direction: column;
-        gap: 27px;
+        gap: 10px;
     }
 
 
@@ -130,7 +130,7 @@ export const ConteinerCadastro = styled.div`
     .bairro {
         & input {
         height: 47px;
-        width: 613px;
+        width: 100%;
         border-radius: 6px;
         background: rgba(196, 196, 196, 1);
 

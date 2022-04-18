@@ -11,7 +11,8 @@ function createWindow(){
     height: 600,
     webPreferences: {
       enableRemoteModule: true
-    }
+    },
+    autoHideMenuBar: true
   });
 
   win.loadURL(
