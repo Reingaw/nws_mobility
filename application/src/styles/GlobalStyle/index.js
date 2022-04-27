@@ -10,4 +10,11 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Roboto', sans-serif;
         color: white;
     }
+    button, .form-control:focus, *:focus {
+        outline: none;
+        box-shadow: none
+    }
+    .progress-bar {
+        background: rgb(97, 218, 251);
+    } 
 `;

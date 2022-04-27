@@ -6,10 +6,8 @@ export const ConteinerCadastro = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 78px;
-
-    margin-top: 136px;
+    justify-content: flex-start;
+    gap: 48px;
 
     .wrapper-progress {
         width: 500px;
@@ -34,153 +32,75 @@ export const ConteinerCadastro = styled.div`
             & span {
                 height: 19px;
                 width: 19px;
-                background: rgba(196, 196, 196, 1);
+                background: #e9ecef;
                 border-radius: 50%;
                 margin: 0 -5px;
                 z-index: 1;
             }
+
+            & span.active {
+                background: rgba(97, 218, 251, 1);
+            }
+
         }
-        
-
-
     }
 
 
     form {
         display: flex;
         flex-direction: column;
-        gap: 27px;
+        gap: 5px;
     }
-
 
     .cep {
-        & input {
-            height: 47px;
-            width: 286px;
-            border-radius: 6px;
-
-            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-            background: rgba(196, 196, 196, 1);
-
-            font-size: 20px;
-            font-weight: 400;
-            line-height: 24px;
-            letter-spacing: 0em;
-            text-align: left;
-
-            padding: 12px 17px;
-        }
-    }
-
-    .nome {
-        & input {
-            height: 47px;
-            width: 613px;
-            border-radius: 6px;
-            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-            background: rgba(196, 196, 196, 1);
-
-            font-size: 20px;
-            font-weight: 400;
-            line-height: 24px;
-            letter-spacing: 0em;
-            text-align: left;
-
-            padding: 12px 17px;
-        }
-    }
-
-    .cidade {
-        & input {
-            height: 47px;
-            width: 613px;
-            border-radius: 6px;
-            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-            background: rgba(196, 196, 196, 1);
-
-            font-size: 20px;
-            font-weight: 400;
-            line-height: 24px;
-            letter-spacing: 0em;
-            text-align: left;
-
-            padding: 12px 17px;
-        }
-    }
-
-    .endereço {
         display: flex;
-        gap: 10px;
-        & #endereço {
-            height: 47px;
-            width: 613px;
-            border-radius: 6px;
-            background: rgba(196, 196, 196, 1);
-
-            font-size: 20px;
-            font-weight: 400;
-            line-height: 24px;
-            letter-spacing: 0em;
-            text-align: left;
-
-            padding: 12px 17px;
-        }
-    }
-
-    .bairro {
-        & input {
-        height: 47px;
-        width: 613px;
+        background: rgba(255, 255, 255, 1);
         border-radius: 6px;
-        background: rgba(196, 196, 196, 1);
 
-        font-size: 20px;
-        font-weight: 400;
-        line-height: 24px;
-        letter-spacing: 0em;
-        text-align: left;
+        margin-top: 65px;
 
-        padding: 12px 17px;
-        }
-    }
-
-    .complemento {
         & input {
-            height: 47px;
             width: 100%;
-            border-radius: 6px;
-            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-            background: rgba(196, 196, 196, 1);
+            max-width: 286px;
 
             font-size: 20px;
             font-weight: 400;
             line-height: 24px;
             letter-spacing: 0em;
             text-align: left;
+            border: none;
+            outline: none;
 
             padding: 12px 17px;
         }
+
+        & button {
+            border: none;
+            outline: none;
+            padding-inline: 15px;
+            background: transparent;
+        }
     }
 
-    .descrição {
+    .form-control {
+        & input, textarea {
+            width: 613px;
+            background: transparent;
+
+            font-size: 20px;
+            font-weight: 400;
+            border: none;
+            outline: none;
+
+            padding-inline: 5px;
+        }
+
         & textarea {
-            width: 100%;
-            height: 109px;
-            border-radius: 6px;
-            background: rgba(196, 196, 196, 1);
-
-            font-family: Roboto;
-            font-size: 20px;
-            font-weight: 400;
-            line-height: 24px;
-            letter-spacing: 0em;
-            text-align: left;
-
-            padding: 12px 17px;
+            resize: none;
         }
     }
 
-    .btn {
+    .btn-wrapper {
         display: flex;
         justify-content: space-between;
     }
@@ -189,6 +109,8 @@ export const ConteinerCadastro = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        margin-top: 65px;
 
         & h4 {
             font-size: 32px;
