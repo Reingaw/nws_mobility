@@ -40,9 +40,7 @@ function Cadastro () {
             <div className="progress-bar" role="progressbar" style={{width: '0%'}} aria-valuenow="25" aria-valuemin="25" aria-valuemax="100">
             </div>
           </div>
-        </div>
-        
-              
+        </div>    
        
         <div className="cep">
           <input type="text" className= "form-control" placeholder='Digite o CEP' value={cep} onChange={(e) => setCep(e.target.value)}/>
@@ -74,19 +72,19 @@ function Cadastro () {
           </div>
 
           <div className='form-control'>
-            <input type="text" className='stepTwoInput' id='cidade' placeholder='Digite a cidade...'{...register('cidade')}/>
-          </div>
-        
-          <div className='form-control'>
             <input type="text" className='stepTwoInput' id='endereço' placeholder='Digite o endereço...'{...register('endereço')}/>
+          </div>
+
+          <div className="form-control">
+            <input type="text" className="stepTwoInput" placeholder='Digite o complemento' {...register('complemento')}/>
           </div>
 
           <div className="form-control">
             <input type="text" className='stepTwoInput' id='numero' placeholder='Bairro' {...register('bairro')}/>
           </div>
-        
-          <div className="form-control">
-            <input type="text" className="stepTwoInput" placeholder='Digite o complemento' {...register('complemento')}/>
+
+          <div className='form-control'>
+            <input type="text" className='stepTwoInput' id='cidade' placeholder='Digite a cidade...'{...register('cidade')}/>
           </div>
         
           <div className='form-control'>
