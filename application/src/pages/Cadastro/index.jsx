@@ -125,10 +125,6 @@ function Cadastro () {
           <p>Em breve, estaremos trabalhando para<br />
             consertar esse problema nesse endereço.
           </p>
-          <button 
-            type="button" 
-            className="btn btn-primary" 
-            onClick={ ()=> setStep(1) }>Voltar</button>
         </div>
       </ConteinerCadastro>
     );
