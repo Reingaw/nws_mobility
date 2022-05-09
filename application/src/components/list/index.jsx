@@ -42,11 +42,11 @@ function List() {
         <Card>
           <h6 className='card-items'>Nome: Peter Parker</h6>
           <h6 className='card-items'>Endereço: Av. Rio Branco</h6>
-          <h6 className='card-items'>Complemento: Rua próximo ao sacolão do gilmar</h6>
+          <h6 className='card-items'>Complemento: Próximo ao infoshop</h6>
           <h6 className='card-items'>Bairro: Centro</h6>
           <h6 className='card-items'>Cidade: Rio de Janeiro</h6>
           <h6 className='card-items'>Defeito: A rua possui diversos buracos, e a calçada é 
-          impossíve para um cadeirante se locomover.
+          impossível para um cadeirante se locomover.
           </h6>
         </Card>
       </li>

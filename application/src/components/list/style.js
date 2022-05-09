@@ -11,7 +11,6 @@ export const Card = styled.div`
   
   
   .card-items {
-    font-size: 10px;
     color: #899499;
   }
 `;
