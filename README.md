@@ -1,11 +1,11 @@
 # NWS Mobility
 
-## Frontend
-
 ### Clone o projeto
 ```
 git clone https://github.com/Reingaw/nws_mobility.git
 ```
+
+## Frontend
 
 ### Entre na pasta da aplicação frontend
 ```
