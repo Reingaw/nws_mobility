@@ -12,7 +12,8 @@ function createWindow(){
     webPreferences: {
       enableRemoteModule: true
     },
-    autoHideMenuBar: true
+    autoHideMenuBar: true,
+    resizable: false
   });
 
   win.loadURL(
