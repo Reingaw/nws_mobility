@@ -1,32 +1,43 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import { ConteinerCadastro } from './style';
 import axios from 'axios';
-import {useForm} from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { FaSearch } from 'react-icons/fa';
 
-function Cadastro () {
+function Cadastro() {
   const [step, setStep] = useState(1);
   const [cep, setCep] = useState('');
 
-  const {register, handleSubmit, setValue} = useForm();
+  const { register, handleSubmit, setValue } = useForm({
+    defaultValues: {
+      name: null,
+      address: null,
+      complement: null,
+      neighborhood: null,
+      city: null,
+      issue: null
+    }
+  });
 
   const onSubmit = handleSubmit((data) => {
     console.log(data);
+    axios.post('http://localhost:8080/complaint', data)
+      .then(() => window.location.href = '/list');
     setStep(3);
   });
 
   function searchCep() {
     setStep(2);
     axios.get(`https://viacep.com.br/ws/${cep}/json/`)
-      .then(({data}) => {
-        setValue('endereço', data.logradouro);
-        setValue('complemento', data.complemento);
-        setValue('bairro', data.bairro);
-        setValue('cidade', data.localidade);
+      .then(({ data }) => {
+        setValue('address', data.logradouro);
+        setValue('complement', data.complemento);
+        setValue('neighborhood', data.bairro);
+        setValue('city', data.localidade);
       });
   }
 
-  switch(step) {
+  switch (step) {
   case 1:
     return (
       <ConteinerCadastro>
@@ -37,14 +48,14 @@ function Cadastro () {
             <span></span>
           </div>
           <div className="progress">
-            <div className="progress-bar" role="progressbar" style={{width: '0%'}} aria-valuenow="25" aria-valuemin="25" aria-valuemax="100">
+            <div className="progress-bar" role="progressbar" style={{ width: '0%' }} aria-valuenow="25" aria-valuemin="25" aria-valuemax="100">
             </div>
           </div>
-        </div>    
-       
+        </div>
+
         <div className="cep">
-          <input type="text" className= "form-control" placeholder='Digite o CEP' value={cep} onChange={(e) => setCep(e.target.value)}/>
-          <button onClick={()=> searchCep()}><FaSearch /></button>
+          <input type="text" className="form-control" placeholder='Digite o CEP' value={cep} onChange={(e) => setCep(e.target.value)} />
+          <button onClick={() => searchCep()}><FaSearch /></button>
         </div>
 
       </ConteinerCadastro>
@@ -60,35 +71,35 @@ function Cadastro () {
             <span></span>
           </div>
           <div className="progress">
-            <div className="progress-bar" role="progressbar" style={{width: '50%'}} aria-valuenow="25" aria-valuemin="25" aria-valuemax="100">
+            <div className="progress-bar" role="progressbar" style={{ width: '50%' }} aria-valuenow="25" aria-valuemin="25" aria-valuemax="100">
             </div>
           </div>
         </div>
-        
-              
+
+
         <form onSubmit={onSubmit}>
           <div className="form-control">
-            <input type="text" className="stepTwoInput" placeholder='Digite seu nome...' {...register('nome')}/>
+            <input type="text" className="stepTwoInput" placeholder='Digite seu nome...' {...register('name')} />
           </div>
 
           <div className='form-control'>
-            <input type="text" className='stepTwoInput' id='endereço' placeholder='Digite o endereço...'{...register('endereço')}/>
+            <input type="text" className='stepTwoInput' id='endereço' placeholder='Digite o endereço...'{...register('address')} />
           </div>
 
           <div className="form-control">
-            <input type="text" className="stepTwoInput" placeholder='Digite o complemento' {...register('complemento')}/>
+            <input type="text" className="stepTwoInput" placeholder='Digite o complemento' {...register('complement')} />
           </div>
 
           <div className="form-control">
-            <input type="text" className='stepTwoInput' id='numero' placeholder='Bairro' {...register('bairro')}/>
+            <input type="text" className='stepTwoInput' id='numero' placeholder='Bairro' {...register('neighborhood')} />
           </div>
 
           <div className='form-control'>
-            <input type="text" className='stepTwoInput' id='cidade' placeholder='Digite a cidade...'{...register('cidade')}/>
+            <input type="text" className='stepTwoInput' id='cidade' placeholder='Digite a cidade...'{...register('city')} />
           </div>
-        
+
           <div className='form-control'>
-            <textarea className="stepTwoInput" placeholder='Descreva o defeito...' {...register('descrição')}></textarea>
+            <textarea className="stepTwoInput" placeholder='Descreva o defeito...' {...register('issue')}></textarea>
           </div>
 
           <div className='btn-wrapper'>
@@ -115,23 +126,23 @@ function Cadastro () {
             <span className='active'></span>
           </div>
           <div className="progress">
-            <div className="progress-bar" role="progressbar" style={{width: '100%'}} aria-valuenow="25" aria-valuemin="25" aria-valuemax="100">
+            <div className="progress-bar" role="progressbar" style={{ width: '100%' }} aria-valuenow="25" aria-valuemin="25" aria-valuemax="100">
             </div>
           </div>
         </div>
-        
+
         <div className='message'>
           <h4>SUCESSO</h4>
           <p>Em breve, estaremos trabalhando para<br />
-            consertar esse problema nesse endereço.
+              consertar esse problema nesse endereço.
           </p>
         </div>
       </ConteinerCadastro>
     );
-  }  
+  }
 
-  return; 
-  
+  return;
+
 }
 
 export default Cadastro;

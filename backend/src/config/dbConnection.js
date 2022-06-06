@@ -1,10 +1,9 @@
 const mongo = require('mongoose')
 
-mongo.connect(process.env.MONGO_HOSTNAME, { 
-  user: process.env.MONGO_USERNAME, 
-  pass: process.env.MONGO_PASSWORD, 
-  dbName: process.env.MONGO_DATABASE
-})
+mongo.connect(`mongodb+srv://mongo:uReELUViPq0rMIgB@cluster0.kpgvd.mongodb.net/?retryWrites=true&w=majority`)
+  .then(() => console.log('connect'))
+  .catch(() => console.log('not connect'))
+  
 const complaintSchema = new mongo.Schema({
   name: String,
   address: String,
