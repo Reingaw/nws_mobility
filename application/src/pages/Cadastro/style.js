@@ -100,6 +100,10 @@ export const ConteinerCadastro = styled.div`
         }
     }
 
+    .form-control.erro {
+        border: 1px solid #F00;
+    }
+
     .btn-wrapper {
         display: flex;
         justify-content: space-between;

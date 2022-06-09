@@ -23,4 +23,13 @@ router.get('/complaint', async (req, res) => {
   }
 })
 
+router.delete('/complaint', async (req, res) => {
+  try {
+    await complaint.collection.drop()
+    return res.status(200).json({ success: true, message: 'Deletado com sucesso.' })
+  }catch {
+    return res.status(404).json({ success: false, error: `Não foi possível deletar os dados.`})
+  }
+})
+
 module.exports = router

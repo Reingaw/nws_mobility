@@ -1,10 +1,12 @@
-import { useState } from 'react';
-import {useNavigate} from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ContainerHeader } from './style.js';
 
 function Header() {
   const [text, setText] = useState('Lista');
   const navigate = useNavigate();
+
+  const { id } = useParams();
 
   function showHideList(e) {
     e.preventDefault();
@@ -18,6 +20,10 @@ function Header() {
     }
     setText(t);
   }
+
+  useEffect(()=> {
+    (id === '3') && setText('Voltar');
+  }, []);
 
   return(
     <ContainerHeader>

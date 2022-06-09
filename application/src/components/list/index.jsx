@@ -4,7 +4,6 @@ import { Card, ListWrapper } from './style';
 
 function List() {
   const [listItems, setListItems] = useState(null);
-  console.log(listItems);
 
   async function getListItems() {
     const {data} = await axios.get('http://localhost:8080/complaint');
@@ -14,6 +13,7 @@ function List() {
   useEffect(() => {
     getListItems();
   },[]);
+  
   return(
     <ListWrapper>
       {listItems?.map((item) => {
@@ -25,8 +25,7 @@ function List() {
               <h6 className='card-items'>Complemento: {item?.complement}</h6>
               <h6 className='card-items'>Bairro: {item?.neighborhood}</h6>
               <h6 className='card-items'>Cidade: {item?.city}</h6>
-              <h6 className='card-items'>Defeito: {item?.issue}
-              </h6>
+              <h6 className='card-items'>Defeito: {item?.issue}</h6>
             </Card>
           </li>
         );
